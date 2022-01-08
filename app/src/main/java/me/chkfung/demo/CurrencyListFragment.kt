@@ -28,7 +28,6 @@ class CurrencyListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        model.initData()
         val currencyAdapter = CurrencyAdapter { currencyInfo ->
             model.onCurrencyItemClicked(currencyInfo)
         }

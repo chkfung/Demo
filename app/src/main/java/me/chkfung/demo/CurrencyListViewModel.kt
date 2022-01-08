@@ -3,13 +3,15 @@ package me.chkfung.demo
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import me.chkfung.demo.data.model.CurrencyInfo
 import me.chkfung.demo.data.source.CurrencyRepo
-import java.lang.Exception
 import java.util.*
 import javax.inject.Inject
 
@@ -49,7 +51,7 @@ class CurrencyListViewModel @Inject constructor(
 
     fun initData() {
         initJob?.cancel()
-        initJob = viewModelScope.launch {
+        initJob = viewModelScope.launch(ioDispatcher) {
             try {
                 val list = currencyRepo.getCurrency()
                 _uiState.update { currencyInfoState -> currencyInfoState.copy(currencyList = list, sortAsc = true) }
