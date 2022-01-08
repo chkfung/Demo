@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Demo</string>
+    <string name="lorem_cta">Lorem</string>
+    <string name="lorem_short">Lorem ipsum dolor sit amet</string>
+    <string name="lorem_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id elit placerat, volutpat mi eget, mattis libero. Proin accumsan orci sed fringilla bibendum. Curabitur id posuere risus, vel rhoncus tortor. Donec lacus lacus, fringilla et nulla nec, interdum iaculis enim. Quisque accumsan justo id neque lacinia dignissim. Vivamus vitae velit nunc. Curabitur neque purus, ultricies quis viverra et, consequat in velit. Phasellus ut mi rhoncus, placerat dolor eget, porta est. Donec placerat odio at arcu eleifend vestibulum. Etiam sed dignissim lectus. Phasellus et velit blandit, tincidunt eros non, mattis libero.</string>
+</resources>
