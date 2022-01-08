@@ -2,7 +2,6 @@ package me.chkfung.demo.data.source.local
 
 import me.chkfung.demo.data.model.CurrencyInfo
 import me.chkfung.demo.data.source.DataSource
-import java.lang.Exception
 
 class FakeLocalDataSource : DataSource {
     var emptyData: Boolean = false

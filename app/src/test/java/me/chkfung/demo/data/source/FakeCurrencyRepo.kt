@@ -1,9 +1,6 @@
 package me.chkfung.demo.data.source
 
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import me.chkfung.demo.data.model.CurrencyInfo
-import java.lang.Exception
 
 class FakeCurrencyRepo : CurrencyRepo {
     var shouldReturnError: Boolean = false

@@ -1,9 +1,6 @@
 package me.chkfung.demo.data.source
 
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import me.chkfung.demo.data.model.CurrencyInfo
-import java.lang.Exception
 import javax.inject.Inject
 
 class FakeCurrencyRepo @Inject constructor() : CurrencyRepo {

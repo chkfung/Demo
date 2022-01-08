@@ -7,9 +7,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineScope
+import me.chkfung.demo.data.source.DataSource
 import me.chkfung.demo.data.source.local.CurrencyDao
 import me.chkfung.demo.data.source.local.CurrencyDatabase
-import me.chkfung.demo.data.source.DataSource
 import me.chkfung.demo.data.source.local.LocalDataSourceImpl
 import javax.inject.Singleton
 
@@ -19,7 +19,7 @@ class DatabaseModule {
     @Singleton
     @Provides
     fun provideCurrencyDatabase(@ApplicationContext context: Context, @AppModule.AppScope scope: CoroutineScope): CurrencyDatabase {
-        return CurrencyDatabase.getInstance(context, scope);
+        return CurrencyDatabase.getInstance(context, scope)
     }
 
     @Provides

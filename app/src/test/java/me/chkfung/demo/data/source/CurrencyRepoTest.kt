@@ -2,14 +2,12 @@ package me.chkfung.demo.data.source
 
 
 import com.google.common.truth.Truth.assertThat
-import junit.framework.TestCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import me.chkfung.demo.MainCoroutineRule
 import me.chkfung.demo.data.source.local.FakeLocalDataSource
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import java.lang.Exception
 
 @ExperimentalCoroutinesApi
 class CurrencyRepoTest {

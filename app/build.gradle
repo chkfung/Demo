@@ -59,63 +59,53 @@ dependencies {
     def hiltVersion = "2.38.1"
     def lifecycle_version = "2.4.0"
     def activity_version = "1.4.0"
-
-    def androidXVersion = '1.0.0'
     def androidXTestCoreVersion = '1.3.0'
     def androidXTestExtKotlinRunnerVersion = '1.1.2'
     def androidXTestRulesVersion = '1.2.0'
-    def androidXAnnotations = '1.2.0'
-    def androidXLegacySupport = '1.0.0'
-    def appCompatVersion = '1.3.0'
-    def archLifecycleVersion = '2.3.1'
     def archTestingVersion = '2.1.0'
-    def cardVersion = '1.0.0'
     def coroutinesVersion = '1.5.0'
-    def dexMakerVersion = '2.12.1'
     def espressoVersion = '3.3.0'
-    def fragmentKtxVersion = '1.3.4'
-    def hamcrestVersion = '1.3'
     def junitVersion = '4.13.1'
-    def materialVersion = '1.3.0'
-    def multiDexVersion = '2.0.1'
-    def recyclerViewVersion = '1.2.0'
     def robolectricVersion = '4.5.1'
-    def rulesVersion = '1.0.1'
-    def timberVersion = '4.7.1'
     def truthVersion = '1.1.2'
     def fragmentVersion = "1.4.0"
-    // ViewModel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    // Saved state module for ViewModel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
 
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
-    // Kotlin
+    // arch
+    implementation 'androidx.core:core-ktx:1.7.0'
     implementation "androidx.activity:activity-ktx:$activity_version"
     implementation "androidx.fragment:fragment-ktx:$activity_version"
-    // Annotation processor
+
+    // androidx ui kit
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+
+    // coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
+    // Room DB
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
 
-
+    // DI Hilt
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-compiler:$hiltVersion"
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
-    implementation "androidx.recyclerview:recyclerview:1.2.1"
 
+    // Testing Dependencies
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    // Once https://issuetracker.google.com/127986458 is fixed this can be testImplementation
+    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
 
-
+    // Unit Test
     testImplementation "junit:junit:$junitVersion"
     testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
@@ -125,6 +115,8 @@ dependencies {
     testImplementation "com.google.truth:truth:$truthVersion"
 
     // AndroidX Test - Instrumented testing
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
     androidTestImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
     androidTestImplementation "androidx.test:rules:$androidXTestRulesVersion"
@@ -135,17 +127,10 @@ dependencies {
         // conflicts with mockito due to direct inclusion of byte buddy
         exclude group: "org.jetbrains.kotlinx", module: "kotlinx-coroutines-debug"
     }
-    // For instrumented tests.
     androidTestImplementation 'com.google.dagger:hilt-android-testing:2.38.1'
-    // ...with Kotlin.
     kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.38.1'
-//    androidTestImplementation "androidx.navigation:navigation-testing:$navigationVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
     androidTestImplementation "com.google.truth:truth:$truthVersion"
-    // Once https://issuetracker.google.com/127986458 is fixed this can be testImplementation
-    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
-//    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
-//    androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espressoVersion"
     androidTestImplementation "org.robolectric:annotations:$robolectricVersion"
 }

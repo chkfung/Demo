@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import me.chkfung.demo.CurrencyAdapter.*
-import me.chkfung.demo.databinding.ItemCurrencyInfoBinding
+import me.chkfung.demo.CurrencyAdapter.VH
 import me.chkfung.demo.data.model.CurrencyInfo
+import me.chkfung.demo.databinding.ItemCurrencyInfoBinding
 
 class CurrencyAdapter(private val onItemClick: (CurrencyInfo) -> Unit) : RecyclerView.Adapter<VH>() {
 
